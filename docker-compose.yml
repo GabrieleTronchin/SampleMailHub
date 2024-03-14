@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  greenmail:
+    container_name: greenmail
+    image: greenmail/standalone
+    ports:
+      - "3143:3143"
+      - "8080:8080"
+      - "3025:3025"
+    networks:
+      - greenmail
+    restart: unless-stopped
+
+networks:
+  greenmail:
+    driver: bridge
