@@ -1,4 +1,5 @@
 using Mail.Hub.Domain;
+using Mail.Hub.Domain.Sender;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,14 +17,7 @@ app.UseSwaggerUI();
 
 //app.UseHttpsRedirection();
 
-app.MapGet("/ReciceMail", async (MailHubService mailService) =>
-{
-    await mailService.ReciveMails();
-})
-.WithName("ReciceMail")
-.WithOpenApi();
-
-app.MapGet("/SendMail", async (MailHubService mailService) =>
+app.MapGet("/SendMail", async (MailSenderService mailService) =>
 {
     await mailService.SendMail();
 })

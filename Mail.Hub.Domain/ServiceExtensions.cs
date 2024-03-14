@@ -1,5 +1,6 @@
 ﻿using Mail.Hub.Domain.Models;
 using Mail.Hub.Domain.Reciver;
+using Mail.Hub.Domain.Sender;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
@@ -13,7 +14,7 @@ namespace Mail.Hub.Domain
         public static IServiceCollection AddDomains(this IServiceCollection services,
                                                     IConfiguration configuration)
         {
-            services.AddTransient<MailHubService>();
+            services.AddTransient<MailSenderService>();
             services.AddTransient<IReviceMailService, ReviceMailService>();
 
             services.AddOptions<SenderMailOptions>().Bind(configuration.GetSection($"{nameof(SenderMailOptions)}")).ValidateDataAnnotations();

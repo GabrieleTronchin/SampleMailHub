@@ -1,8 +1,7 @@
 ﻿
-namespace Mail.Hub.Domain.Reciver
+namespace Mail.Hub.Domain.Reciver;
+
+public interface IReviceMailService
 {
-    public interface IReviceMailService
-    {
-        Task ParseNewMails();
-    }
+    Task ParseNewMails();
 }
