@@ -2,6 +2,6 @@
 {
     public interface IMailSenderService
     {
-        Task SendMail();
+        Task SendMail(string body);
     }
 }

@@ -11,7 +11,7 @@ namespace Mail.Hub.Domain.Sender;
 
 public class MailSenderService(ILogger<MailSenderService> logger, IOptions<SenderMailOptions> options) : IMailSenderService
 {
-    public async Task SendMail()
+    public async Task SendMail(string body)
     {
         try
         {
@@ -20,7 +20,7 @@ public class MailSenderService(ILogger<MailSenderService> logger, IOptions<Sende
             message.From.Add(new MailboxAddress("FromName", "fromAddress@gmail.com"));
             message.To.Add(new MailboxAddress("test", "mytestmail@test.it"));
             message.Subject = "test";
-            message.Body = new TextPart("plain") { Text = "test" };
+            message.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = $"<b>{body}</b>" };
 
             using var client = new SmtpClient();
             client.Connect("localhost", 3025, false);

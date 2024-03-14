@@ -1,5 +1,6 @@
 using Mail.Hub.Domain;
 using Mail.Hub.Domain.Sender;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,9 +18,9 @@ app.UseSwaggerUI();
 
 //app.UseHttpsRedirection();
 
-app.MapGet("/SendMail", async (MailSenderService mailService) =>
+app.MapPost("/SendMail", async ([FromBody]string body,IMailSenderService mailService) =>
 {
-    await mailService.SendMail();
+    await mailService.SendMail(body);
 })
 .WithName("SendMail")
 .WithOpenApi();
