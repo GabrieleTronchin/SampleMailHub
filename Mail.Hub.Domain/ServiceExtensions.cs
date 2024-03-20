@@ -14,13 +14,14 @@ public static partial class ServicesExtensions
     public static IServiceCollection AddDomains(this IServiceCollection services,
                                                 IConfiguration configuration)
     {
-        services.AddTransient<IMailSenderService,MailSenderService>();
+        services.AddTransient<IMailSenderService, MailSenderService>();
         services.AddTransient<IReviceMailService, ReviceMailService>();
 
         services.AddOptions<SenderMailOptions>().Bind(configuration.GetSection($"{nameof(SenderMailOptions)}")).ValidateDataAnnotations();
         services.AddOptions<ReciverMailOptions>().Bind(configuration.GetSection($"{nameof(ReciverMailOptions)}")).ValidateDataAnnotations();
 
-        services.AddMediatR(cfg => {
+        services.AddMediatR(cfg =>
+        {
             cfg.RegisterServicesFromAssembly(typeof(NewMailMessageHandler).Assembly);
         });
 

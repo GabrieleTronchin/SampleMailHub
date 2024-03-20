@@ -1,8 +1,5 @@
 ﻿using Mail.Hub.Domain.Models;
-using MailKit;
-using MailKit.Net.Imap;
 using MailKit.Net.Smtp;
-using MailKit.Search;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;

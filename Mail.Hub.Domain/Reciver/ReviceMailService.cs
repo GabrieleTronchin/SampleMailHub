@@ -46,7 +46,7 @@ public class ReviceMailService : IReviceMailService
             {
                 var message = await inbox.GetMessageAsync(item);
 
-                await _mediator.Send(new NewMailCommand() {  Title = message.Subject, HtmlBody = message.HtmlBody });
+                await _mediator.Send(new NewMailCommand() { Title = message.Subject, HtmlBody = message.HtmlBody });
 
                 inbox.AddFlags(item, MessageFlags.Seen, true);
             }
