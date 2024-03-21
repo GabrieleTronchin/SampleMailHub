@@ -8,14 +8,14 @@ using Microsoft.Extensions.Options;
 
 namespace Mail.Hub.Domain.Reciver;
 
-public class ReviceMailService : IReviceMailService
+public class ReceiverMailService : IReceiverMailService
 {
-    private readonly ILogger<ReviceMailService> _logger;
-    private readonly ReciverMailOptions _options;
+    private readonly ILogger<ReceiverMailService> _logger;
+    private readonly ReceiverMailOptions _options;
     private readonly IMediator _mediator;
 
-    public ReviceMailService(ILogger<ReviceMailService> logger,
-                            IOptions<ReciverMailOptions> options,
+    public ReceiverMailService(ILogger<ReceiverMailService> logger,
+                            IOptions<ReceiverMailOptions> options,
                             IMediator mediator)
     {
         _logger = logger;

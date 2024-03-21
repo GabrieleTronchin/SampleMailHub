@@ -15,10 +15,10 @@ public static partial class ServicesExtensions
                                                 IConfiguration configuration)
     {
         services.AddTransient<IMailSenderService, MailSenderService>();
-        services.AddTransient<IReviceMailService, ReviceMailService>();
+        services.AddTransient<IReceiverMailService, ReceiverMailService>();
 
         services.AddOptions<SenderMailOptions>().Bind(configuration.GetSection($"{nameof(SenderMailOptions)}")).ValidateDataAnnotations();
-        services.AddOptions<ReciverMailOptions>().Bind(configuration.GetSection($"{nameof(ReciverMailOptions)}")).ValidateDataAnnotations();
+        services.AddOptions<ReceiverMailOptions>().Bind(configuration.GetSection($"{nameof(ReceiverMailOptions)}")).ValidateDataAnnotations();
 
         services.AddMediatR(cfg =>
         {

@@ -3,7 +3,7 @@
 namespace Mail.Hub.Domain.Models;
 
 
-public class ReciverMailOptions
+public class ReceiverMailOptions
 {
     [Required]
     public string Server { get; set; }

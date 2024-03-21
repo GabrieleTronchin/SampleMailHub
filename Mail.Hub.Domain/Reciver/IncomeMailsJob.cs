@@ -6,9 +6,9 @@ namespace Mail.Hub.Domain.Reciver;
 public class IncomeMailsJob : IJob
 {
     private readonly ILogger<IncomeMailsJob> _logger;
-    private readonly IReviceMailService _reviceMailService;
+    private readonly IReceiverMailService _reviceMailService;
 
-    public IncomeMailsJob(ILogger<IncomeMailsJob> logger, IReviceMailService reviceMailService)
+    public IncomeMailsJob(ILogger<IncomeMailsJob> logger, IReceiverMailService reviceMailService)
     {
         _logger = logger;
         _reviceMailService = reviceMailService;
