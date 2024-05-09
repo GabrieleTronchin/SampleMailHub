@@ -14,9 +14,11 @@ public class ReceiverMailService : IReceiverMailService
     private readonly ReceiverMailOptions _options;
     private readonly IMediator _mediator;
 
-    public ReceiverMailService(ILogger<ReceiverMailService> logger,
-                            IOptions<ReceiverMailOptions> options,
-                            IMediator mediator)
+    public ReceiverMailService(
+        ILogger<ReceiverMailService> logger,
+        IOptions<ReceiverMailOptions> options,
+        IMediator mediator
+    )
     {
         _logger = logger;
         _options = options.Value;
@@ -46,7 +48,9 @@ public class ReceiverMailService : IReceiverMailService
             {
                 var message = await inbox.GetMessageAsync(item);
 
-                await _mediator.Send(new NewMailCommand() { Title = message.Subject, HtmlBody = message.HtmlBody });
+                await _mediator.Send(
+                    new NewMailCommand() { Title = message.Subject, HtmlBody = message.HtmlBody }
+                );
 
                 inbox.AddFlags(item, MessageFlags.Seen, true);
             }
@@ -59,5 +63,4 @@ public class ReceiverMailService : IReceiverMailService
             throw;
         }
     }
-
 }

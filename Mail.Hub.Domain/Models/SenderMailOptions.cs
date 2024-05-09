@@ -2,7 +2,6 @@
 
 namespace Mail.Hub.Domain.Models;
 
-
 public class SenderMailOptions
 {
     [Required]

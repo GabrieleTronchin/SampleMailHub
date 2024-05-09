@@ -18,11 +18,14 @@ app.UseSwaggerUI();
 
 //app.UseHttpsRedirection();
 
-app.MapPost("/SendMail", async ([FromBody] string body, IMailSenderService mailService) =>
-{
-    await mailService.SendMail(body);
-})
-.WithName("SendMail")
-.WithOpenApi();
+app.MapPost(
+        "/SendMail",
+        async ([FromBody] string body, IMailSenderService mailService) =>
+        {
+            await mailService.SendMail(body);
+        }
+    )
+    .WithName("SendMail")
+    .WithOpenApi();
 
 app.Run();

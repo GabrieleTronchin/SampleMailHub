@@ -6,7 +6,10 @@ using MimeKit;
 
 namespace Mail.Hub.Domain.Sender;
 
-public class MailSenderService(ILogger<MailSenderService> logger, IOptions<SenderMailOptions> options) : IMailSenderService
+public class MailSenderService(
+    ILogger<MailSenderService> logger,
+    IOptions<SenderMailOptions> options
+) : IMailSenderService
 {
     public async Task SendMail(string body)
     {
@@ -24,7 +27,6 @@ public class MailSenderService(ILogger<MailSenderService> logger, IOptions<Sende
             client.Authenticate("test", "test");
             await client.SendAsync(message);
             client.Disconnect(true);
-
         }
         catch (Exception ex)
         {
@@ -32,7 +34,4 @@ public class MailSenderService(ILogger<MailSenderService> logger, IOptions<Sende
             throw;
         }
     }
-
-
-
 }
