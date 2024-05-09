@@ -1,5 +1,4 @@
-﻿
-namespace Mail.Hub.Domain.Reciver;
+﻿namespace Mail.Hub.Domain.Reciver;
 
 public interface IReceiverMailService
 {

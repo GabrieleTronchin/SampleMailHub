@@ -11,6 +11,7 @@ public class NewMailMessageHandler : IRequestHandler<NewMailCommand>
     {
         _logger = logger;
     }
+
     public async Task Handle(NewMailCommand request, CancellationToken cancellationToken)
     {
         _logger.LogInformation($"{request.Title} - {request.HtmlBody}");

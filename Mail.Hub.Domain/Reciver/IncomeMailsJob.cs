@@ -28,6 +28,5 @@ public class IncomeMailsJob : IJob
         }
 
         _logger.LogInformation($"{nameof(IncomeMailsJob)} - Execution Stop");
-
     }
 }
